@@ -5,6 +5,11 @@ import java.time.LocalDateTime;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * 
+ * @author admin
+ *
+ */
 public class Showing {
     private Movie movie;
     private int sequenceOfTheDay;

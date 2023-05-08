@@ -4,6 +4,11 @@ import org.apache.log4j.Logger;
 
 import com.jpmc.theater.model.Showing;
 
+/**
+ * 
+ * @author admin
+ *
+ */
 public class ShowingServiceImpl implements ShowingService {
 
 	static Logger log = Logger.getLogger(ShowingServiceImpl.class.getName());
@@ -14,14 +19,28 @@ public class ShowingServiceImpl implements ShowingService {
 	private static int SEQUENCE_ONE = 1;
 	private static int SEQUENCE_TWO = 2;
 
+	
+	/**
+	 * 
+	 */
 	public double calculateFee(Showing showing, int audienceCount) {
 		return calculateTicketPrice(showing) * audienceCount;
 	}
 
+	/**
+	 * 
+	 * @param showing
+	 * @return
+	 */
 	private double calculateTicketPrice(Showing showing) {
 		return showing.getMovieFee() - getDiscount(showing);
 	}
 
+	/**
+	 * Calculates discount based on movie and showing information
+	 * @param showing
+	 * @return
+	 */
 	private double getDiscount(Showing showing) {
 
 		log.info("Inside ShowingServiceImpl::getDiscount()");

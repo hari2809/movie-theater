@@ -1,5 +1,10 @@
 package com.jpmc.theater.model;
 
+/**
+ * 
+ * @author admin
+ *
+ */
 public class Reservation {
     private Customer customer;
     private Showing showing;
@@ -11,6 +16,10 @@ public class Reservation {
         this.audienceCount = audienceCount;
     }
 
+    /**
+     * 
+     * @return
+     */
     public double totalFee() {
         return showing.getMovieFee() * audienceCount;
         

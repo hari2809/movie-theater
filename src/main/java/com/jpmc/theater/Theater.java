@@ -22,13 +22,25 @@ public class Theater {
 
 	LocalDateProvider provider;
 	private List<Showing> schedule;
-
+	
+	/**
+	 * 
+	 * @param provider
+	 * @param schedule
+	 */
 	public Theater(LocalDateProvider provider, List<Showing> schedule) {
 		this.provider = provider;
 		this.schedule = schedule;
 
 	}
 
+	/**
+	 * 
+	 * @param customer
+	 * @param sequence
+	 * @param howManyTickets
+	 * @return
+	 */
 	public Reservation reserve(Customer customer, int sequence, int howManyTickets) {
 		Showing showing;
 		try {
@@ -40,6 +52,9 @@ public class Theater {
 		return new Reservation(customer, showing, howManyTickets);
 	}
 
+	/**
+	 * 
+	 */
 	public void printSchedule() {
 		log.info(provider.currentDate());
 		log.info("===================================================");
@@ -56,7 +71,12 @@ public class Theater {
 		}
 
 	}
-
+	
+	/**
+	 * 
+	 * @param duration
+	 * @return
+	 */
 	public String humanReadableFormat(Duration duration) {
 		long hour = duration.toHours();
 		long remainingMin = duration.toMinutes() - TimeUnit.HOURS.toMinutes(duration.toHours());
@@ -65,7 +85,11 @@ public class Theater {
 				handlePlural(remainingMin));
 	}
 
-	// (s) postfix should be added to handle plural correctly
+	/**
+	 * (s) postfix should be added to handle plural correctly
+	 * @param value
+	 * @return
+	 */	
 	private String handlePlural(long value) {
 		if (value == 1) {
 			return "";
@@ -80,6 +104,10 @@ public class Theater {
 		theater.printSchedule();
 	}
 
+	/**
+	 * Builds Theater information
+	 * @return
+	 */
 	private static Theater buildTheater() {
 		LocalDateProvider provider = LocalDateProvider.singleton();
 		Movie spiderMan = new Movie("Spider-Man: No Way Home", Duration.ofMinutes(90), 12.5, 1);
