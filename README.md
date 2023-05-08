@@ -27,3 +27,16 @@ This is a poorly written application, and we're expecting the candidate to great
   * Any movies showing on 7th, you'll get 1$ discount
   * The discount amount applied only one if met multiple rules; biggest amount one
 * We want to print the movie schedule with simple text & json format
+
+##
+*Added new discount rules and test cases
+*Separated package structure with model and util and separated business logic from model
+*Added log4j implementation for logs
+*Added jackson package to print json 
+
+## Suggestions
+*If we create this application as springboot we can use the dependency injection 
+*Instead throwing exception we can set error response when movie not found
+*We can add Mockitos for code coverage unit test cases 
+*We can implement validations
+
